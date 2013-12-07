@@ -4,7 +4,7 @@
     }
 
     function select(group) {
-        return '"+["' + group.replace('#', '","') + '"].__select()+"'
+        return '"+["' + group.replace(/#/g, '","') + '"].__select()+"'
     }
 
     function emplace(group) {
@@ -16,11 +16,13 @@
     function wto(pattern) {
         var out = JSON.stringify(pattern)
         while (out.indexOf('#{') != -1)
+            /* jshint loopfunc: true */
             out = out.split(/(?=#{|})/).map(function (it, n, arr) {
                 /* wow such lookbehind */
                 if (n && arr[n][0] == '}') it = it.substr(1)
                 return arr[++n] && arr[n][0] == '}'? it + '}': it
             }).map(emplace).join('')
+        /* jshint evil: true */
         return Function('return ' + out)
     }
 
