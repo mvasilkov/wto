@@ -23,5 +23,6 @@ describe('što', function () {
         /* nested */
         one(wto('#{#{a}##{b}}')(), 'ab'.split(''))
         one(wto('del #{foo##{bar#što}}')(), ['del foo', 'del bar', 'del što'])
+        one(wto('del #{foo#-f #{bar#što}}')(), ['del foo', 'del -f bar', 'del -f što'])
     })
 })

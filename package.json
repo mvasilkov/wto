@@ -1,0 +1,20 @@
+{
+    "name": "wto",
+    "version": "0.0.1",
+    "description": "što",
+    "keywords": ["random", "string", "formatting", "template"],
+    "author": "Mark Vasilkov (https://github.com/mvasilkov)",
+    "main": "wto",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:mvasilkov/wto.git"
+    },
+    "devDependencies": {
+        "jshint": "~2.3",
+        "mocha": "~1.15"
+    },
+    "license": "MIT"
+}
